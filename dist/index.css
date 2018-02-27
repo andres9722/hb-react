@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Century Gothic';
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  letter-spacing: 10px;
+  font-size: 2em;
+}
+
+div {
+  padding: 1em 0;
+}
+
+.text {
+  padding: 0em 0;
+}

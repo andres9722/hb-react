@@ -1,31 +1,30 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import randomColor from 'randomcolor'
 
 export default class Text extends Component {
-    constructor (props) {
-        super(props)
-        this.state = {
-            selected: false
-        }
-        this.toggle = this.toggle.bind(this)
-    } 
-
-    toggle () {
-        this.setState({
-            selected: !this.state.selected
-        })
+  constructor(props) {
+    super(props)
+    this.state = {
+      selected: false
     }
-    
-    render () {
-        const style =  {
-            color: this.props.color,
-            backgroundColor: this.state.selected ? 'yellow' : 'pink'
-        }
+    this.toggle = this.toggle.bind(this)
+  }
 
-        const selectedFlag = this.state.selected ? <p> Selected </p> : <p> No selected </p>
+  toggle() {
+    this.setState({
+      selected: !this.state.selected
+    })
+  }
 
-        return (
-            <h1 onClick={this.toggle} style={style}> {this.props.text} {selectedFlag} </h1>
-        )
+  render() {
+    const style = {
+      color: this.props.color,
+      backgroundColor: this.state.selected ? randomColor({luminosity: 'light', hue: 'random'}) : randomColor({luminosity: 'light', hue: 'random'})
     }
+
+    return (
+      <h1 className='text' onClick={this.toggle} style={style}> {this.props.text.toUpperCase()} </h1>
+    )
+  }
 }
